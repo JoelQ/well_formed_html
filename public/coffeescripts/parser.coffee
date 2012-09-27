@@ -19,7 +19,7 @@ class @Parser
     return true
 
   openingTag: (tag) ->
-    tag.match(/<[^\/>]+>/) != null
+    tag.match(/<[^\/][^>]*>/) != null
 
   closingTag: (tag) ->
     tag.match(/<\/[^>]+>/) != null
@@ -31,4 +31,4 @@ class @Parser
       return false
 
   tagName: (tag) ->
-    tag.match(/[a-z]+(?=>|\s)/)[0]
+    tag.match(/[a-z0-9]+(?=>|\s)/)[0]

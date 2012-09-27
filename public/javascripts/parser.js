@@ -31,7 +31,7 @@
     };
 
     Parser.prototype.openingTag = function(tag) {
-      return tag.match(/<[^\/>]+>/) !== null;
+      return tag.match(/<[^\/][^>]*>/) !== null;
     };
 
     Parser.prototype.closingTag = function(tag) {
@@ -47,7 +47,7 @@
     };
 
     Parser.prototype.tagName = function(tag) {
-      return tag.match(/[a-z]+(?=>|\s)/)[0];
+      return tag.match(/[a-z0-9]+(?=>|\s)/)[0];
     };
 
     return Parser;
