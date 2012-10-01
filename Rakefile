@@ -1,6 +1,7 @@
 
 begin
   require 'jasmine'
+  load 'javascripts/spec/support/jasmine_config.rb'
   load 'jasmine/tasks/jasmine.rake'
 rescue LoadError
   task :jasmine do
