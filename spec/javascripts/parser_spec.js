@@ -24,6 +24,9 @@
       it("returns false for a closing tag", function() {
         return expect(parser.openingTag("</p>")).toBe(false);
       });
+      it("returns false for self-closing tags", function() {
+        return expect(parser.openingTag("<br />")).toBe(false);
+      });
       return it("returns false for any other string", function() {
         return expect(parser.openingTag("abcd1234")).toBe(false);
       });
@@ -35,8 +38,11 @@
       it("returns false for an opening tag tag", function() {
         return expect(parser.closingTag("<p>")).toBe(false);
       });
-      return it("returns false for any other string", function() {
+      it("returns false for any other string", function() {
         return expect(parser.closingTag("abcd1234")).toBe(false);
+      });
+      return it("returns false for self-closing tags", function() {
+        return expect(parser.closingTag("<br />")).toBe(false);
       });
     });
     describe("matchingTags", function() {

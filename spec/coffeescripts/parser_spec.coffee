@@ -21,6 +21,9 @@ describe "Parser", ->
     it "returns false for a closing tag", ->
       expect(parser.openingTag("</p>")).toBe false
 
+    it "returns false for self-closing tags", ->
+      expect(parser.openingTag("<br />")).toBe false
+
     it "returns false for any other string", ->
       expect(parser.openingTag("abcd1234")).toBe false
 
@@ -33,6 +36,9 @@ describe "Parser", ->
 
     it "returns false for any other string", ->
       expect(parser.closingTag("abcd1234")).toBe false
+
+    it "returns false for self-closing tags", ->
+          expect(parser.closingTag("<br />")).toBe false
 
   describe "matchingTags", ->
     it "returns true when tags match", ->
